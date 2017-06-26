@@ -23,12 +23,29 @@ public final class R {
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
+        public static final int snow=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f080000;
+        public static final int action_settings=0x7f08000e;
+        public static final int data=0x7f080008;
+        public static final int img_card=0x7f080009;
+        public static final int infomation=0x7f08000d;
+        public static final int listView=0x7f080005;
+        public static final int list_view=0x7f080007;
+        public static final int main_info1=0x7f080001;
+        public static final int main_info2=0x7f080002;
+        public static final int main_info3=0x7f080003;
+        public static final int main_info4=0x7f080004;
+        public static final int temp_max=0x7f08000b;
+        public static final int temp_min=0x7f08000c;
+        public static final int text_info=0x7f080000;
+        public static final int title_text=0x7f080006;
+        public static final int weather_img=0x7f08000a;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
+        public static final int choose_area=0x7f030001;
+        public static final int weather_reflash=0x7f030002;
     }
     public static final class menu {
         public static final int main=0x7f070000;
