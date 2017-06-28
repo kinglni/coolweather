@@ -174,3 +174,4 @@ public class ChooseAreaActivity extends Activity{
 		}
 	}
 }
+//test
