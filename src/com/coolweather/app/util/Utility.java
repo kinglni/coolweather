@@ -47,7 +47,6 @@ public class Utility {
 					JSONObject ob=ja.getJSONObject(i);
 					province.setId(ob.getInt("ID"));
 					province.setProvince(ob.getString("province"));
-							
 					coolWeatherDB.SaveProvince(province);
 									}
 				return true;

@@ -39,7 +39,7 @@ public class ChooseAreaActivity extends Activity{
 	private List<City> cityList;
 	private Province selectedProvince;
 	private City selectedCity;
-	private int currentLevel;
+	private int currentLevel;//默认初始化值为0（LEVEL_PROVINCE）；
 	@Override 
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -81,7 +81,7 @@ public class ChooseAreaActivity extends Activity{
 			titleText.setText(selectedProvince.getProvince());
 			currentLevel=LEVEL_CITY;
 		}else{
-			queryFromServer(selectedProvince.getProvince(),"province");
+			queryFromServer(selectedProvince.getProvince(),"city");
 		}
 				
 	}
@@ -106,9 +106,9 @@ public class ChooseAreaActivity extends Activity{
 	private void queryFromServer(final String code, final String type) {
 		// TODO Auto-generated method stub
 		String address;
-		if(!TextUtils.isEmpty(code)){
-			address="http://127.0.0.1/"+code+".json";}else{
-				address="http://127.0.0.1/city.json";
+		if(currentLevel==LEVEL_PROVINCE){
+			address="http://127.0.0.1/all_city.json";}else{
+				address="http://127.0.0.1/province.json";
 		}
 		showProgressDialog();
 		HttpUtil.sendHttpRequest(address,new HttpCallbackListener(){
@@ -118,12 +118,10 @@ public class ChooseAreaActivity extends Activity{
 				if("province".equals(type)){
 					result=Utility.handleProvinceResponse(coolWeatherDB,response);
 				}else if("city".equals(type)){
-					result=Utility.handleCityResponse(coolWeatherDB,response,selectedProvince.getId());
-					
+					result=Utility.handleCityResponse(coolWeatherDB,response);
 				}
 				if(result){
 					runOnUiThread(new Runnable(){
-
 						@Override
 						public void run() {
 							// TODO Auto-generated method stub
