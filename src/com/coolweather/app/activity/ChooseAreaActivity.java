@@ -47,9 +47,11 @@ public class ChooseAreaActivity extends Activity{
 		setContentView(R.layout.choose_area);
 		listView=(ListView)findViewById(R.id.list_view);
 		titleText=(TextView)findViewById(R.id.title_text);
+		coolWeatherDB=CoolWeatherDB.getInstance(this);
+		queryProvinces();
 		adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,dataList);
 		listView.setAdapter(adapter);
-		coolWeatherDB=CoolWeatherDB.getInstance(this);
+		
 		listView.setOnItemClickListener(new OnItemClickListener(){
 
 			@Override
@@ -68,6 +70,7 @@ public class ChooseAreaActivity extends Activity{
 
 		});
 	}
+
 	protected void queryCities() {
 		// TODO Auto-generated method stub
 		cityList=coolWeatherDB.loadCity(selectedProvince.getProvince());
@@ -107,8 +110,8 @@ public class ChooseAreaActivity extends Activity{
 		// TODO Auto-generated method stub
 		String address;
 		if(currentLevel==LEVEL_PROVINCE){
-			address="http://127.0.0.1/all_city.json";}else{
-				address="http://127.0.0.1/province.json";
+			address="http://10.0.2.2/all_city.json";}else{
+				address="http://10.0.2.2/province.json";
 		}
 		showProgressDialog();
 		HttpUtil.sendHttpRequest(address,new HttpCallbackListener(){

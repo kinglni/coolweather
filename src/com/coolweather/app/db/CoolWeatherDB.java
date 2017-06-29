@@ -47,13 +47,13 @@ public void SaveCity(City city){
 	
 }
 
-public void SaveProvince(Province privince){
-	if(privince!=null){
+public void SaveProvince(Province province){
+	if(province!=null){
 		ContentValues cv=new ContentValues();
-		cv.put("id",privince.getId());
-		cv.put("id",privince.getProvince());
+		cv.put("id",province.getId());
+		cv.put("id",province.getProvince());
 
-		db.insert("privince",null,cv);
+		db.insert("province",null,cv);
 			}
 	}
 public List<Province> loadProvince(){
