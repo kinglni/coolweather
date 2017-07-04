@@ -19,7 +19,7 @@ public class Utility {
 				for(int i=0;i<ja.length();i++){
 					City city=new City();
 					JSONObject ob=ja.getJSONObject(i);
-					city.setId(ob.getInt("ID"));
+					//city.setId(ob.getInt("ID"));这句话会引起 constraint failed
 					city.setProvince(ob.getString("province"));
 					city.setCity(ob.getString("city"));
 					city.setCounty(ob.getString("county"));
@@ -45,7 +45,7 @@ public class Utility {
 				for(int i=0;i<ja.length();i++){
 					Province province=new Province();
 					JSONObject ob=ja.getJSONObject(i);
-					province.setId(ob.getInt("ID"));
+					//province.setId(ob.getInt("ID"));这句话会引起 constraint failed
 					province.setProvince(ob.getString("province"));
 					coolWeatherDB.SaveProvince(province);
 									}
