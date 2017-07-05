@@ -61,8 +61,10 @@ public List<Province> loadProvince(){
 	List<Province> list=new ArrayList<Province>();
 	Cursor cursor=db.query("province",null,null,null,null,null,null);
 	if(cursor.moveToFirst()){
-		do{Province province=new Province();
+		do{
+			Province province=new Province();
 		province.setId(cursor.getInt(cursor.getColumnIndex("id")));
+		System.out.println(cursor.getInt(cursor.getColumnIndex("id")));
 		province.setProvince(cursor.getString(cursor.getColumnIndex("province")));
 		list.add(province);
 		}while(cursor.moveToNext());

@@ -48,6 +48,7 @@ public class ChooseAreaActivity extends Activity{
 		listView=(ListView)findViewById(R.id.list_view);
 		titleText=(TextView)findViewById(R.id.title_text);
 		coolWeatherDB=CoolWeatherDB.getInstance(this);
+		currentLevel=LEVEL_CITY;
 		queryProvinces();
 		adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,dataList);
 		listView.setAdapter(adapter);
@@ -58,6 +59,7 @@ public class ChooseAreaActivity extends Activity{
 			public void onItemClick(AdapterView<?> arg0, View arg1, int index,
 					long arg3) {if(currentLevel==LEVEL_PROVINCE){
 						selectedProvince=provinceList.get(index);
+						System.out.println(selectedProvince);
 						queryCities();
 					}else if(currentLevel==LEVEL_CITY){
 						selectedCity=cityList.get(index);
