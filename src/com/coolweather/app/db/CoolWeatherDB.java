@@ -35,12 +35,12 @@ public synchronized static CoolWeatherDB getInstance(Context context){
 public void SaveCity(City city){
 	if(city!=null){
 		ContentValues cv=new ContentValues();
-		cv.put("id",city.getId());
-		cv.put("id",city.getProvince());
-		cv.put("id",city.getCity());
-		cv.put("id",city.getCounty());
-		cv.put("id",city.getEnName());
-		cv.put("id",city.getSEnName());
+		//cv.put("id",city.getId());这句话会引起 constraint failed
+		cv.put("province",city.getProvince());
+		cv.put("city",city.getCity());
+		cv.put("county",city.getCounty());
+		cv.put("enName",city.getEnName());
+		cv.put("SEnName",city.getSEnName());
 		db.insert("city",null,cv);
 		
 	}
@@ -50,8 +50,8 @@ public void SaveCity(City city){
 public void SaveProvince(Province province){
 	if(province!=null){
 		ContentValues cv=new ContentValues();
-		cv.put("id",province.getId());
-		cv.put("id",province.getProvince());
+		//cv.put("id",province.getId());这句话会引起 constraint failed
+		cv.put("province",province.getProvince());
 
 		db.insert("province",null,cv);
 			}
